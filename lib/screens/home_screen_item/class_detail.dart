@@ -164,45 +164,36 @@ class _ClassDetailPageState extends State<ClassDetailPage> {
                                   height: 5,
                                 ),
                                 widget.checkPage == true
-                                    ? lessons[index].documents!.length != 0
-                                        ? GestureDetector(
+                                ? lessons[index].documents!.isNotEmpty
+                                    ? Column(
+                                        children: lessons[index].documents!.map((document) {
+                                          return GestureDetector(
                                             onTap: () {
                                               Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        PdfViewController(
-                                                          url:
-                                                              '${lessons[index].documents![0].linkUrl}',
-                                                          title:
-                                                              '${lessons[index].documents![0].name ?? "Document"} ',
-                                                        )),
+                                                  builder: (context) => PdfViewController(
+                                                    url: '${document.linkUrl}',
+                                                    title: '${document.name ?? "Document"}',
+                                                  ),
+                                                ),
                                               );
                                             },
                                             child: Text(
-                                              '${lessons[index].documents![0].name ?? "Document"} ',
+                                              '${document.name ?? "Document"}',
                                               style: TextStyle(
-                                                  decoration: TextDecoration
-                                                      .underline, // Thêm gạch chân
-                                                  decorationColor: Colors
-                                                      .blue, // Màu của gạch chân
-                                                  decorationThickness: 2, // Đ
-
-                                                  fontSize: 16.0,
-                                                  color: Colors.black),
+                                                decoration: TextDecoration.underline,
+                                                decorationColor: Colors.blue,
+                                                decorationThickness: 2,
+                                                fontSize: 16.0,
+                                                color: Colors.black,
+                                              ),
                                             ),
-                                            
-                                          )
-                                        : SizedBox()
-                                    // Text(
-                                    //     "Documents After Class",
-                                    //     style: TextStyle(
-                                    //       fontSize: 16.0,
-                                    //       color: Colors.black,
-                                    //       // Độ dày của gạch chân
-                                    //     ),
-                                    //   )
+                                          );
+                                        }).toList(),
+                                      )
                                     : SizedBox()
+                                : SizedBox(),
                               ],
                             ),
                           ],

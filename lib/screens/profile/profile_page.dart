@@ -29,26 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   radius: kSpacingUnit * 5,
                   backgroundImage: AssetImage("assets/icons/avatar.png"),
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                    height: kSpacingUnit * 2.5,
-                    width: kSpacingUnit * 2.5,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).canvasColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      heightFactor: kSpacingUnit * 1.5,
-                      widthFactor: kSpacingUnit * 1.5,
-                      child: Icon(
-                        LineAwesomeIcons.pen,
-                        color: kDarkPrimaryColor,
-                        size: 14,
-                      ),
-                    ),
-                  ),
-                ),
+                
               ],
             ),
           ),
@@ -62,45 +43,30 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           SizedBox(height: kSpacingUnit * 0.5),
           Text(
+            globals.phoneNumber,
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: kSpacingUnit * 0.5),
+          Text(
             globals.email,
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(height: kSpacingUnit * 2),
-          GestureDetector(
-            onTap: () async {
-              Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => EditProfile(name: globals.fullName)))
-                  .then((value) {
-                setState(() {
-                  globals.fullName = value ?? '';
-                });
-              });
-            },
-            child: Container(
-              height: kSpacingUnit * 4,
-              width: kSpacingUnit * 20,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kSpacingUnit * 3),
-                color: Color(0xFFFFC107),
-              ),
-              child: Center(
-                child: Text(
-                  'Edit profile',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: kDarkPrimaryColor,
-                  ),
-                ),
-              ),
+          SizedBox(height: kSpacingUnit * 0.5),
+          Text(
+            globals.address,
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(height: kSpacingUnit * 3),
+          
+          SizedBox(height: 300),
         ],
       ),
     );

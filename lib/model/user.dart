@@ -4,10 +4,9 @@ class User {
   String? name;
   String? email;
   String? phoneNumber;
+  String? address;
   int? role;
-  String? phone;
-  String? location;
-  String? about;
+  String? imageUrl;
   String? createdAt;
   String? updatedAt;
 
@@ -17,10 +16,9 @@ class User {
       this.name,
       this.email,
       this.phoneNumber,
+      this.address,
       this.role,
-      this.phone,
-      this.location,
-      this.about,
+      this.imageUrl,
       this.createdAt,
       this.updatedAt});
 
@@ -30,10 +28,9 @@ class User {
     name = json['name'];
     email = json['email'];
     phoneNumber = json['phone_number'];
+    address = json['address'];
     role = json['role'];
-    phone = json['phone'];
-    location = json['location'];
-    about = json['about'];
+    imageUrl = json['image_url'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -45,10 +42,9 @@ class User {
     data['name'] = this.name;
     data['email'] = this.email;
     data['phone_number'] = this.phoneNumber;
+    data['address'] = this.address;
     data['role'] = this.role;
-    data['phone'] = this.phone;
-    data['location'] = this.location;
-    data['about'] = this.about;
+    data['image_url'] = this.imageUrl;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     return data;

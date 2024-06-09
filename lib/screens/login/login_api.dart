@@ -147,6 +147,8 @@ Future<User?> getUserInfor() async {
       globals.fullName = data.name!;
       globals.email = data.email!;
       globals.phoneNumber = data.phoneNumber!;
+      globals.address = data.address!;
+
 
       return data;
     } else {
@@ -357,7 +359,7 @@ Future<bool> postHomeWorkResultStore(String studentId, String homeworkId,
   }
 }
 
-Future<int> postUserChangeInfo(String name, String PhoneNumber) async {
+Future<int> postUserChangeInfo(String name, String PhoneNumber, String email, String address) async {
   try {
     var url = Uri.parse(urlPostChangeInfor);
     var headers = {
@@ -369,6 +371,8 @@ Future<int> postUserChangeInfo(String name, String PhoneNumber) async {
     formData.fields.addAll({
       'name': name,
       'phone_number': PhoneNumber,
+      'email': email,
+      'address': address,
     });
     formData.headers.addAll(headers);
     var response = await formData.send();

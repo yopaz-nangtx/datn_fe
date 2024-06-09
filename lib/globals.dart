@@ -8,6 +8,7 @@ String accessToken = "";
 String tokenType = "";
 String fullName = "";
 String email = "";
+String address = "";
 List<Container> lessonHomes = [];
 List<Container> taskItems = [];
 List<Homework> homeworks = [];

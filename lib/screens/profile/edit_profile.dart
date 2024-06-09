@@ -17,6 +17,8 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
   TextEditingController nameVC = TextEditingController(text: '');
   TextEditingController phoneNumberVC = TextEditingController(text: '');
+  TextEditingController addressVC = TextEditingController(text: '');
+  TextEditingController emailVC = TextEditingController(text: '');
 
   @override
   void initState() {
@@ -24,6 +26,8 @@ class _EditProfileState extends State<EditProfile> {
     super.initState();
     nameVC.text = globals.fullName;
     phoneNumberVC.text = globals.phoneNumber;
+    addressVC.text = globals.address;
+    emailVC.text = globals.email;
   }
 
   @override
@@ -88,6 +92,42 @@ class _EditProfileState extends State<EditProfile> {
                 SizedBox(
                   height: 20,
                 ),
+                Text("Email",
+                    style: TextStyle(fontSize: 16.0, color: Colors.black)),
+                SizedBox(
+                  height: 15,
+                ),
+                TextFieldContainer(
+                  child: TextFormField(
+                    controller: emailVC,
+                    cursorColor: kPrimaryColor,
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text("Address",
+                    style: TextStyle(fontSize: 16.0, color: Colors.black)),
+                SizedBox(
+                  height: 15,
+                ),
+                TextFieldContainer(
+                  child: TextFormField(
+                    controller: addressVC,
+                    cursorColor: kPrimaryColor,
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
               ],
             ),
           ),
@@ -115,15 +155,13 @@ class _EditProfileState extends State<EditProfile> {
 
   void update() async {
     try {
-      final a = await postUserChangeInfo(nameVC.text, phoneNumberVC.text);
+      final a = await postUserChangeInfo(nameVC.text, phoneNumberVC.text, emailVC.text, addressVC.text);
 
       if (a == 1) {
         await getUserInfor();
       }
-      if (widget.name != nameVC.text ||
-          globals.phoneNumber != phoneNumberVC.text) {
+      
         Navigator.pop(context, nameVC.text);
-      }
     } catch (e) {
       throw (e);
     }
