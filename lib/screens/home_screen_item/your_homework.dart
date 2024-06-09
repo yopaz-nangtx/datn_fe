@@ -32,7 +32,7 @@ class _YourHomeworkState extends State<YourHomework> {
 
   loadData() async {
     homework = await getListHomeWork();
-    print("homeword123");
+    print(homework);
     setState(() {});
   }
 

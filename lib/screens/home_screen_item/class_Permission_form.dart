@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:datn_test/globals.dart' as globals;
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:datn_test/screens/home_screen_item/leave_apply.dart';
 
 class PermissionForm extends StatefulWidget {
   const PermissionForm({
@@ -441,7 +442,10 @@ class _PermissionFormState extends State<PermissionForm> {
     try {
       await postAttendanceStore(
           globals.userId.toString(), id!.toString(), reasonPleaseThink.text);
-      Navigator.pop(context);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LeaveApply()),
+      );
     } catch (e) {
       throw (e);
     }

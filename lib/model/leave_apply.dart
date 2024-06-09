@@ -9,6 +9,8 @@ class LeaveApplyModel {
   String? lessonName;
   Classroom? classroom;
   Lesson? lesson;
+  String? createdAt;
+  String? updatedAt;
 
   LeaveApplyModel(
       {this.id,
@@ -18,7 +20,9 @@ class LeaveApplyModel {
       this.status,
       this.lessonName,
       this.classroom,
-      this.lesson});
+      this.lesson,
+      this.createdAt,
+      this.updatedAt});
 
   LeaveApplyModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -32,6 +36,8 @@ class LeaveApplyModel {
         : null;
     lesson =
         json['lesson'] != null ? new Lesson.fromJson(json['lesson']) : null;
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
   }
 
   Map<String, dynamic> toJson() {
@@ -117,7 +123,8 @@ class Lesson {
       this.isFinished,
       this.createdAt,
       this.updatedAt,
-      this.classroom});
+      this.classroom,
+      });
 
   Lesson.fromJson(Map<String, dynamic> json) {
     id = json['id'];

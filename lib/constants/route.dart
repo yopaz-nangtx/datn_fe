@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const urlBase = 'http://127.0.0.1:8000';
+const urlBase = 'https://a2c3-116-96-45-6.ngrok-free.app';
 const urlLogin = '$urlBase/api/login'; // api login
 const urlUser = '$urlBase/api/user'; // api get user
 const urlLogout = '$urlBase/api/user/logout'; // api logout

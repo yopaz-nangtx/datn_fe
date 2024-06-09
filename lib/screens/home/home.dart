@@ -116,25 +116,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           width: 90,
                         ),
-                        Container(
-                          alignment: Alignment.centerRight,
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.white),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.blueGrey.withOpacity(0.2),
-                                blurRadius: 12,
-                                spreadRadius: 8,
-                              )
-                            ],
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage("assets/icons/logo.jpg"),
-                            ),
-                          ),
-                        ),
+                        
                       ],
                     )
                   ],

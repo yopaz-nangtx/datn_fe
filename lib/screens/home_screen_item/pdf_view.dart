@@ -77,7 +77,6 @@ abstract class BaseState<T extends StatefulWidget> extends State<T>
   @override
   void dispose() {
     routeObserver.unsubscribe(this);
-    BotToast.closeAllLoading();
     super.dispose();
   }
 }

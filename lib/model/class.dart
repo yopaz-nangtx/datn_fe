@@ -281,9 +281,6 @@ class Teacher {
     email = json['email'];
     phoneNumber = json['phone_number'];
     role = json['role'];
-    phone = json['phone'];
-    location = json['location'];
-    about = json['about'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }

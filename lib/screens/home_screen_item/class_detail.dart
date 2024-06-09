@@ -16,6 +16,8 @@ class ClassDetailPage extends StatefulWidget {
 class _ClassDetailPageState extends State<ClassDetailPage> {
   List<ClassList> classListDetail = [];
   List<Lessons> lessons = [];
+  DateTime now = DateTime.now();
+
 
   @override
   void initState() {
@@ -32,6 +34,18 @@ class _ClassDetailPageState extends State<ClassDetailPage> {
     setState(() {});
   }
 
+  bool isLessonPast(String? endTimeString) {
+    if (endTimeString == null) {
+      return false; // Trả về false nếu endTimeString là null
+    }
+
+    // Chuyển đổi endTimeString thành kiểu DateTime
+    DateTime endTime = DateTime.parse(endTimeString);
+
+    // So sánh thời gian kết thúc của bài học với thời gian hiện tại
+    return endTime.isBefore(DateTime.now());
+  }
+
   @override
   Widget build(BuildContext context) {
     return classListDetail.length == 0
@@ -42,7 +56,7 @@ class _ClassDetailPageState extends State<ClassDetailPage> {
             backgroundColor: Colors.white,
             appBar: AppBar(
               backgroundColor: Colors.blue,
-              title: Text('Your Classes Detail',
+              title: Text('Your Class Detail',
                   style: TextStyle(color: Colors.white)),
               leading: IconButton(
                 icon: Icon(
@@ -129,7 +143,7 @@ class _ClassDetailPageState extends State<ClassDetailPage> {
                                         height: 5,
                                       ),
                                 Text(
-                                  "Lesson: ${index + 1}",
+                                  "Lesson: ${lessons[index].lessonName}",
                                   style: TextStyle(
                                       fontSize: 16.0, color: Colors.black),
                                 ),
@@ -166,7 +180,7 @@ class _ClassDetailPageState extends State<ClassDetailPage> {
                                               );
                                             },
                                             child: Text(
-                                              "Documents After Class",
+                                              '${lessons[index].documents![0].name ?? "Document"} ',
                                               style: TextStyle(
                                                   decoration: TextDecoration
                                                       .underline, // Thêm gạch chân
@@ -177,6 +191,7 @@ class _ClassDetailPageState extends State<ClassDetailPage> {
                                                   fontSize: 16.0,
                                                   color: Colors.black),
                                             ),
+                                            
                                           )
                                         : SizedBox()
                                     // Text(
@@ -193,7 +208,7 @@ class _ClassDetailPageState extends State<ClassDetailPage> {
                           ],
                         ),
                       ),
-                      lessons[index].attendenceStatus != null
+                      lessons[index].endTime != null
                           ? Positioned.fill(
                               child: Align(
                                   alignment: Alignment.centerRight,
@@ -203,7 +218,9 @@ class _ClassDetailPageState extends State<ClassDetailPage> {
                                     height: 15,
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Colors.green,
+                                      color: isLessonPast(lessons[index].endTime)
+                                          ? Colors.green // Thời gian kết thúc đã qua thời gian hiện tại
+                                          : Colors.blue, // Thời gian kết thúc chưa qua thời gian hiện tại
                                     ),
                                   )),
                             )

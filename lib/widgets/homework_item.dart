@@ -52,7 +52,7 @@ class HomeworkListItem extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    'Class Name: ${hwInfo.nameClass!}',
+                    'Class Name: ${hwInfo.nameClass! ?? ''}',
                     style: TextStyle(fontSize: 16.0, color: Colors.black),
                   ),
                   SizedBox(
