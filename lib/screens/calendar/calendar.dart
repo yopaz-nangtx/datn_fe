@@ -13,6 +13,13 @@ class CalendarPage extends StatefulWidget {
   @override
   _CalendarPageState createState() => _CalendarPageState();
 }
+List<DateTime> generateDays(DateTime startDate, int numberOfDays) {
+  List<DateTime> days = [];
+  for (int i = 0; i < numberOfDays; i++) {
+    days.add(startDate.add(Duration(days: i)));
+  }
+  return days;
+}
 
 class _CalendarPageState extends State<CalendarPage> {
   List<bool> dayActiveList = List.generate(7, (index) => false);
@@ -51,8 +58,7 @@ class _CalendarPageState extends State<CalendarPage> {
                     ":" +
                     DateTime.parse(lessonDataSchedule[i]['lessons'][j]['start_time'])
                         .minute
-                        .toString() +
-                    ":0",
+                        .toString(),
                 DateTime.parse(lessonDataSchedule[i]['lessons'][j]['start_time'])
                         .hour <
                     12,
