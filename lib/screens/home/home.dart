@@ -153,21 +153,6 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 10,
                       ),
-                      buildTitleRow("YOUR TASKS", taskItems.length),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            ...taskItems,
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
                     ],
                   ),
                 ),

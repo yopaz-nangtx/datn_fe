@@ -36,7 +36,7 @@ class LeaveApplyModel {
         : null;
     lesson =
         json['lesson'] != null ? new Lesson.fromJson(json['lesson']) : null;
-    createdAt = json['created_at'];
+    createdAt = json['created_att'];
     updatedAt = json['updated_at'];
   }
 
@@ -130,10 +130,10 @@ class Lesson {
     id = json['id'];
     classroomId = json['classroom_id'];
     lessonName = json['lesson_name'];
-    startTime = json['start_time'];
+    startTime = json['startt_time'];
     endTime = json['end_time'];
     isFinished = json['is_finished'];
-    createdAt = json['created_at'];
+    createdAt = json['created_att'];
     updatedAt = json['updated_at'];
     classroom = json['classroom'] != null
         ? new Classroom.fromJson(json['classroom'])
@@ -145,10 +145,10 @@ class Lesson {
     data['id'] = this.id;
     data['classroom_id'] = this.classroomId;
     data['lesson_name'] = this.lessonName;
-    data['start_time'] = this.startTime;
+    data['startt_time'] = this.startTime;
     data['end_time'] = this.endTime;
     data['is_finished'] = this.isFinished;
-    data['created_at'] = this.createdAt;
+    data['created_att'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     if (this.classroom != null) {
       data['classroom'] = this.classroom!.toJson();

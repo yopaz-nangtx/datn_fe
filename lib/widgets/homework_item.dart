@@ -73,7 +73,7 @@ class HomeworkListItem extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "Expiration date: ${DateFormat('dd-MM-yyyy').format(DateTime.parse(hwInfo.endTime!))}",
+                    "Expiration date: ${DateFormat('dd/MM/yyyy').format(DateTime.parse(hwInfo.endTime!))}",
                     style: TextStyle(fontSize: 16.0, color: Colors.black),
                   ),
                 ],
